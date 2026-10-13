@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f8fc"><meta name="description" content="Generate AI image captions with BLIP.">
+  <title>Image Caption Studio — AI-powered descriptions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar"><a class="brand" href="/"><span class="brand-mark">✳</span><span>caption<span class="brand-light">studio</span></span></a><div class="model-pill"><span class="status-dot"></span> Powered by BLIP</div></header>
+    <main>
+      <section class="hero"><div class="eyebrow"><span class="eyebrow-line"></span> SEE IT. DESCRIBE IT.</div><h1>Give every image<br><span>a voice.</span></h1><p class="hero-copy">Turn your images into thoughtful, AI-generated captions in seconds. Upload one image or a whole batch to get started.</p><div class="hero-stats"><div><strong>01</strong><span>Upload</span></div><i></i><div><strong>02</strong><span>Generate</span></div><i></i><div><strong>03</strong><span>Copy & use</span></div></div></section>
+      <section class="workspace">
+        <div class="control-panel panel"><div class="panel-heading"><div><span class="step-label">STEP 01</span><h2>Add your images</h2></div><span class="icon-bubble">↗</span></div>
+          <label class="dropzone" id="dropzone" for="file-input"><input id="file-input" type="file" accept="image/png,image/jpeg,image/webp,image/gif" multiple hidden><span class="upload-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 14.5v4A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5v-4"/></svg></span><strong>Drop images here</strong><span class="drop-sub">or <em>browse files</em> on your device</span><span class="file-hint">JPG, PNG, WEBP · Up to 12 MB each · 8 images max</span></label>
+          <div id="selected-wrap" class="selected-wrap hidden"><div class="selected-head"><span id="selected-count">0 images selected</span><button id="clear-files" class="text-button" type="button">Clear all</button></div><div id="selected-list" class="selected-list"></div></div>
+          <div class="section-divider"></div><div class="prompt-heading"><div><span class="step-label">OPTIONAL</span><h3>Guide the caption</h3></div><span class="optional-tag">Optional</span></div><p class="field-help">Add a starting phrase to influence the way BLIP describes your image.</p><textarea id="prompt" rows="2" maxlength="180" placeholder='Try “a photo of” or “this image shows”'></textarea><div class="prompt-examples"><button type="button" data-prompt="a photo of">a photo of</button><button type="button" data-prompt="this image shows">this image shows</button><button type="button" data-prompt="there are">there are</button></div>
+          <button id="generate" class="generate-button" type="button" disabled><span class="button-label">Generate captions</span><span class="button-arrow">↗</span></button><p class="privacy-note"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 1 1 8 0v3"/></svg> Images are processed by the app server and aren't saved to a gallery.</p>
+        </div>
+        <div class="results-panel panel"><div class="results-top"><div><span class="step-label">STEP 02</span><h2>Your captions</h2><p class="results-subtitle">Your generated descriptions will appear here.</p></div><span id="result-badge" class="result-badge">Waiting for images</span></div><div id="empty-state" class="empty-state"><div class="empty-art"><div class="art-frame"><svg viewBox="0 0 120 100" aria-hidden="true"><rect x="15" y="14" width="90" height="70" rx="10"/><circle cx="42" cy="37" r="7"/><path d="m22 73 25-25 15 15 12-12 24 22"/><path d="M82 8v-5m20 20h5M10 34H5"/></svg></div><span class="spark spark-one">✦</span><span class="spark spark-two">✧</span></div><h3>Nothing to describe — yet.</h3><p>Add a few images and let BLIP do the talking.</p><span class="empty-tip">Your results will stay on this page until you leave.</span></div><div id="results-grid" class="results-grid"></div><div id="error-banner" class="error-banner hidden" role="alert"></div><div id="results-footer" class="results-footer hidden"><span id="result-summary"></span><button id="copy-all" class="secondary-button" type="button">Copy all captions <span>⧉</span></button></div></div>
+      </section>
+      <section class="bottom-note"><span class="note-star">✳</span><div><strong>Made for the details.</strong><p>BLIP is an image-captioning model developed by Salesforce Research. Captions are AI-generated and may not capture every detail.</p></div><span class="bottom-version">IMAGE CAPTION STUDIO <b>·</b> v1.0</span></section>
+    </main><footer>Designed to make visual storytelling a little easier.</footer>
+  </div><div id="toast" class="toast" role="status" aria-live="polite"></div><script src="/static/app.js"></script>
+</body></html>
